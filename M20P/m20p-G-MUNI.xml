@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<PropertyList include="m20p-main.xml">
+
+ <texture-path>Textures/G-MUNI</texture-path>
+
+</PropertyList>
