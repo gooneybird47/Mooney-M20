@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <description>Mooney M20</description>
+ <author>Brett Harrison</author>  
+ <path>Models/mooney-m20.ac</path>
+ 
+  <offsets>
+        <pitch-deg>2.15</pitch-deg>
+    </offsets>
+	
+    <animation>
+        <type>rotate</type>
+        <property>velocities/true-airspeed-kt</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>70.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>90</ind>
+                <dep>-2.15</dep>
+            </entry>
+            <entry>
+                <ind>100</ind>
+                <dep>-2.15</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+    <name>propall</name>
+    <object-name>prop</object-name>
+    <object-name>prop-blur</object-name>
+   </animation>
+    
+    <animation>
+    <type>select</type>
+    <object-name>prop-blur</object-name>
+    <condition>
+      <greater-than>
+        <property>velocities/true-airspeed-kt</property>
+        <value>50</value>
+      </greater-than>
+    </condition>
+  </animation>
+    
+      <animation>
+    <type>select</type>
+    <object-name>prop</object-name>
+    <condition>
+      <less-than>
+        <property>velocities/true-airspeed-kt</property>
+        <value>60</value>
+      </less-than>
+    </condition>
+  </animation>
+    
+      <animation>
+    <type>spin</type>
+    <object-name>propall</object-name>
+    <property>velocities/true-airspeed-kt</property>
+    <factor> 27 </factor>
+    <center>
+      <x-m> -2.88777</x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 1.30001 </z-m>
+    </center>
+    <axis>
+      <x> -1.000 </x>
+      <y>  0.000 </y>
+      <z>  0.000 </z>
+    </axis>
+  </animation>
+  
+      <animation>
+        <type>select</type>
+        <object-name>gear</object-name>
+        <condition>
+            <less-than>
+                <property>velocities/true-airspeed-kt</property>
+                <value>100</value>
+            </less-than>
+        </condition>
+    </animation>
+          <!-- ALS Navigation Lights Objects -->
+  <model>
+    <path>Lights/m20p-NavLights.xml</path>
+  </model>
+</PropertyList>
